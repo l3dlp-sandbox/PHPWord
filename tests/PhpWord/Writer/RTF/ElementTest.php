@@ -10,10 +10,11 @@
  * file that was distributed with this source code. For the full list of
  * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @link        https://github.com/PHPOffice/PHPWord
- * @copyright   2010-2016 PHPWord contributors
+ * @see         https://github.com/PHPOffice/PHPWord
+ * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
+
 namespace PhpOffice\PhpWord\Writer\RTF;
 
 use PhpOffice\PhpWord\Writer\RTF;
@@ -21,14 +22,14 @@ use PhpOffice\PhpWord\Writer\RTF;
 /**
  * Test class for PhpOffice\PhpWord\Writer\RTF\Element subnamespace
  */
-class ElementTest extends \PHPUnit_Framework_TestCase
+class ElementTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Test unmatched elements
      */
     public function testUnmatchedElements()
     {
-        $elements = array('Container', 'Text', 'Title', 'Link', 'Image', 'Table');
+        $elements = array('Container', 'Text', 'Title', 'Link', 'Image', 'Table', 'Field');
         foreach ($elements as $element) {
             $objectClass = 'PhpOffice\\PhpWord\\Writer\\RTF\\Element\\' . $element;
             $parentWriter = new RTF();
@@ -37,5 +38,41 @@ class ElementTest extends \PHPUnit_Framework_TestCase
 
             $this->assertEquals('', $object->write());
         }
+    }
+
+    public function testPageField()
+    {
+        $parentWriter = new RTF();
+        $element = new \PhpOffice\PhpWord\Element\Field('PAGE');
+        $field = new \PhpOffice\PhpWord\Writer\RTF\Element\Field($parentWriter, $element);
+
+        $this->assertEquals("{\\field{\\*\\fldinst PAGE}{\\fldrslt}}\\par\n", $field->write());
+    }
+
+    public function testNumpageField()
+    {
+        $parentWriter = new RTF();
+        $element = new \PhpOffice\PhpWord\Element\Field('NUMPAGES');
+        $field = new \PhpOffice\PhpWord\Writer\RTF\Element\Field($parentWriter, $element);
+
+        $this->assertEquals("{\\field{\\*\\fldinst NUMPAGES}{\\fldrslt}}\\par\n", $field->write());
+    }
+
+    public function testDateField()
+    {
+        $parentWriter = new RTF();
+        $element = new \PhpOffice\PhpWord\Element\Field('DATE', array('dateformat' => 'd MM yyyy H:mm:ss'));
+        $field = new \PhpOffice\PhpWord\Writer\RTF\Element\Field($parentWriter, $element);
+
+        $this->assertEquals("{\\field{\\*\\fldinst DATE \\\\@ \"d MM yyyy H:mm:ss\"}{\\fldrslt}}\\par\n", $field->write());
+    }
+
+    public function testIndexField()
+    {
+        $parentWriter = new RTF();
+        $element = new \PhpOffice\PhpWord\Element\Field('INDEX');
+        $field = new \PhpOffice\PhpWord\Writer\RTF\Element\Field($parentWriter, $element);
+
+        $this->assertEquals("{}\\par\n", $field->write());
     }
 }
