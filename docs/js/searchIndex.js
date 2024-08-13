@@ -3846,6 +3846,11 @@ Search.appendIndex(
             "summary": "Read\u0020w\u003Ap.",
             "url": "classes/PhpOffice-PhpWord-Reader-Word2007-AbstractPart.html#method_readParagraph"
         },                {
+            "fqsen": "\\PhpOffice\\PhpWord\\Reader\\Word2007\\AbstractPart\u003A\u003AreadFormField\u0028\u0029",
+            "name": "readFormField",
+            "summary": "",
+            "url": "classes/PhpOffice-PhpWord-Reader-Word2007-AbstractPart.html#method_readFormField"
+        },                {
             "fqsen": "\\PhpOffice\\PhpWord\\Reader\\Word2007\\AbstractPart\u003A\u003AgetHeadingDepth\u0028\u0029",
             "name": "getHeadingDepth",
             "summary": "Returns\u0020the\u0020depth\u0020of\u0020the\u0020Heading,\u0020returns\u00200\u0020for\u0020a\u0020Title.",
@@ -14615,6 +14620,16 @@ Search.appendIndex(
             "name": "buildPropertiesAndOptions",
             "summary": "",
             "url": "classes/PhpOffice-PhpWord-Writer-Word2007-Element-Field.html#method_buildPropertiesAndOptions"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpWord\\Writer\\Word2007\\Element\\Field\u003A\u003AwriteRef\u0028\u0029",
+            "name": "writeRef",
+            "summary": "Writes\u0020a\u0020REF\u0020field.",
+            "url": "classes/PhpOffice-PhpWord-Writer-Word2007-Element-Field.html#method_writeRef"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpWord\\Writer\\Word2007\\Element\\Field\u003A\u003AconvertRefOption\u0028\u0029",
+            "name": "convertRefOption",
+            "summary": "",
+            "url": "classes/PhpOffice-PhpWord-Writer-Word2007-Element-Field.html#method_convertRefOption"
         },                {
             "fqsen": "\\PhpOffice\\PhpWord\\Writer\\Word2007\\Element\\Footnote",
             "name": "Footnote",
